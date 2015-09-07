@@ -15,6 +15,7 @@ izrade arhitekture aplikacije (pošto bi to bila tema u vezi koje bismo mogli da
 
 Knjiga će za vreme svog razvoja pretrpeti veliki broj izmena, ponajviše kod rasporeda i sadržaja poglavlja
 (gde drugde mogu da se dese izmene?), tako da sve što je napisano nije još finalno.
+
 Knjiga se sastoji od nekoliko poglavlja:
 * [Šta je Haskell i kako može da mi pomogne u životu?](chapter1.md)
 * [Šta je zapravo Haskell i kako on može da mi pomogne u životu?](chapter2.md)
