@@ -29,3 +29,7 @@ Knjiga se sastoji od nekoliko poglavlja:
 Sugestije, primedbe, predlozi mogu slobodno da budu upućeni na [mzdv@outlook.com](mailto:mzdv@outlook.com)
 
 Pored toga, svaki pull request je dobrodošao.
+
+Kod koji se bude koristio biće dostupan [ovde](https://github.com/mzdv/haskell-za-studente-kodovi).
+
+--Miloš Živadinović
