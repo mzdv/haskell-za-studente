@@ -17,10 +17,10 @@ Knjiga će za vreme svog razvoja pretrpeti veliki broj izmena, ponajviše kod ra
 
 Knjiga se sastoji od nekoliko poglavlja:
 * [Šta je Haskell i kako može da mi pomogne u životu?](chapter1.md)
-* [Šta je zapravo Haskell i kako on može da mi pomogne u životu?](chapter2.md)
-* [Kreiranje funkcija i standardna biblioteka](chapter3.md)
-* [Sve što uđe mora i da izađe](chapter4.md)
-* [Napredne funkcije](chapter5.md)
+* [Naš model i priključenija](chapter2.md)
+* [Interpreter i kompajler](chapter3.md)
+* [Sa magarca na konja](chapter4.md)
+* [Zanimljivosti](chapter5.md)
 * [Zaključak](chapter6.md)
 	
 Sugestije, primedbe, predlozi mogu slobodno da budu upućeni na [mzdv@outlook.com](mailto:mzdv@outlook.com)
