@@ -1,5 +1,9 @@
 #Šta je Haskell i šta ga čini u osnovi?
 -----------------------------------------
+
+Uvod
+----
+
 Haskell. Ime koje se često izgovara u programerskim krugovima ili kao predmet razonode
 ili kao predmet obožavanja. Haskell je funkcionalni programski jezik, bez ikakvih 
 primesa ostalih paradigmi (poput objektno orijentisane ili imperativne paradigme), čime
@@ -25,6 +29,9 @@ zapravo bave razvitkom novih verzija Haskell-a i unapređivanjem postojećih.
 Ovo nisu jedine kompanije koje ga koriste (ili koje se bave njegovim razvitkom). Koriste ga i banke, poput
 [Barclays](https://www.haskell.org/communities/12-2007/html/report.html#sect7.1.2), kao i svima poznate
 firme Google i Intel.
+
+Upotreba i način funkcionisanja
+--------------------------------
 
 Sad kada smo Vas, čitaoca, ubedili da se Haskell zapravo koristi, a i zaplašili, vreme je da vidimo kako
 Haskell može da pomogne u svakodnevnim programerskim aktivnostima. Koristeći Haskell, Vi, kao programer,
