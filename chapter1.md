@@ -193,9 +193,10 @@ tipove.
 Primer: Haskell ima tip podatka `Real`. To je generički tip podatka, koji pruža operacije nad njime, kao i nad
 njegovim naslednicima. Konkretniji primer tipa podatka od `Real`-a bi bio tip podatka `Integral` koji
 implementuje operacije celobrojnog deljenja, kao i operacije određivanja ostatka. Istovremeno, `Real` je podtip
-tipa podataka `Num` koji definiše brojeve. Sledeća slika bi to mogla mnogo bolje da opiše.
+tipa podataka `Num` koji definiše brojeve. Sledeća slika bi to mogla mnogo bolje da opiše (preuzeto sa 
+[Wikibooks](https://en.wikibooks.org/wiki/Main_Page)):
 
-![Tipovi podataka u Haskell-u](images/classes.jpg "Tipovi podataka u Haskell-u. Preuzeto sa [Wikibooks](https://en.wikibooks.org/wiki/Main_Page)
+![Tipovi podataka u Haskell-u](images/classes.jpg)
 
 Hajde da prepišemo našu funkciju `ostatakSaDva`, tako da budemo osigurani u slučaju problematičnih ulaznih
 parametara. Njen novi oblik bi, napisan putem Hindli - Milner sistema tipova, izgledao ovako:
