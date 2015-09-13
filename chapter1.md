@@ -34,21 +34,28 @@ Primer: želite da iz niza elemenata [1,2,3,4,5] izvadite sve elementi koji su d
 ispišete na ekran.
 
 U imperativnom programskom jeziku, poput C#-a (zanemarujući OOP komponente), algoritam bi izgledao ovako:
-
+```
 int niz[] = [1,2,3,4,5];
 for(int i = 0; i < niz.Length; i++) {
 	if(niz[i] % 2 == 0)
 		Console.WriteLine(niz[i] + '\n');	
 }
-
+```
 Rezultat bi bio: 
-
+```
 2
-
 4
-
+```
 Obratite pažnju da smo mi računari rekli *svaki korak* koji on treba da uradi da bi ispisao vrednosti (za svaki
 element niza, počevši od nulte pozicije, pa do maksimalne pozicije, ne uključujući nju, sa korakom od jedne pozicije,
 proveri da li je trenutni element na koraku iz niza deljiv bez ostatka sa dva; ako jeste, ispiši ga na konzolu).
 
 U Haskell-u, ovo bi se moglo uraditi na sledeći način:
+```
+[x | x <- [1,2,3,4,5], mod x 2 == 0]
+```
+
+Rezultat je nova lista (pošto Haskell ne sadrži nizove; to su zapravo liste):
+```
+[2,4]
+```
