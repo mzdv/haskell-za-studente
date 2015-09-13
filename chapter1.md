@@ -22,7 +22,7 @@ koji ga koristi za borbu protiv spam-a, ili [Microsoft](https://news.ycombinator
 osobe koje se zapravo bave razvitkom novih verzija Haskell-a i unapređivanjem postojećih.
 
 Ovo nisu jedine kompanije koje ga koriste (ili koje se bave njegovim razvitkom). Koriste ga i banke, poput
-[Barclays](https://www.haskell.org/communities/12-2007/html/report.html#sect7.1.2), kao i svima poznate IT
+[Barclays](https://www.haskell.org/communities/12-2007/html/report.html#sect7.1.2), kao i svima poznate
 firme Google i Intel.
 
 Sad kada smo Vas, čitaoca, ubedili da se Haskell zapravo koristi, a i zaplašili, vreme je da vidimo kako
@@ -30,12 +30,12 @@ Haskell može da pomogne u svakodnevnim programerskim aktivnostima. Koristeći H
 ne govorite računaru **šta on treba da uradi da bi došao do rezultata**, nego **kako rezultat treba da izgleda**. Samim time, Haskell
 je *deklarativni* programski jezik (poput SQL-a). 
 
-Primer: želite da iz niza elemenata [1,2,3,4,5] izvadite sve elementi koji su deljivi sa dva i da ih
+Primer: želite da iz niza elemenata `[1,2,3,4,5]` izvadite sve elementi koji su deljivi sa dva i da ih
 ispišete na ekran.
 
 U imperativnom programskom jeziku, poput C#-a (zanemarujući OOP komponente), algoritam bi izgledao ovako:
 ```
-int niz[] = [1,2,3,4,5];
+int niz[] = new int[5] { 1, 2, 3, 4, 5 };
 for(int i = 0; i < niz.Length; i++) {
 	if(niz[i] % 2 == 0)
 		Console.WriteLine(niz[i] + '\n');	
@@ -59,3 +59,25 @@ Rezultat je nova lista (pošto Haskell ne sadrži nizove; to su zapravo liste):
 ```
 [2,4]
 ```
+
+Kako čitamo ovaj kod napisan u Haskell-u? Nikakav problem, čak je i smisleniji nego
+u slučaju C#: postoji vrednost x koja za svaki element niza `[1, 2, 3, 4, 5]` radi proveru
+da li je on paran; ako jeste, vrati listu sa tim nizom.
+
+Odjednom imamo problem: kako to mislimo da vrati listu samo sa tim nizom? Šta ako imamo
+više elemenata koji zadovoljavaju uslov parnosti?
+
+Kao što je rečeno, Haskell koristi rekurziju u najvećoj mogućoj meri. Umesto da vrati listu
+odmah prilikom završetka, on *generiše* listu posle svakog rekurzivnog poziva. Naime,
+on ne vraća listu `[2,4]`. On zapravo vraća *funkciju* `2:4:[]` koja kreira listu. Ova
+funkcija se može pročitati na sledeći način: dodati na prvo mesto u praznu listu element 4, a potom
+element 2.
+
+Odjednom se pojavljuje pitanje: kako smo zapravo došli do toga da stavljamo prvo element
+4, a potom element 2? Nije valjda da Haskell radi sve naopako?
+
+Koliko god to lepo zvučalo, Haskell ne obrće svet naopačke (previše). Glavni princip je da se Haskell prvenstveno
+čita **sa desne strane na levu**, tako da, prvo što je urađeno jeste definisana *nova funkcija* koja se sastoji
+od funkcije `mod 2`. Malo čudno zar ne? Jer gde onda stavljamo parametre?
+
+Za to se koristi currying.
