@@ -31,5 +31,12 @@ loop* - skup koraka koji se koriste prilikom interaktivnih interpretatora jezika
 implementacijom za interpretiranje jezika: `ghci` (skraćeno od *Glasgow Haskell Compiler 
 Interactive*).
 
+
+Interpreter
+------------
+
+Kompajler
+---------
+
 Zaključak
 ---------
