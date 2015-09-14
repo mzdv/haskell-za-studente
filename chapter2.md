@@ -28,8 +28,7 @@ Avion predstavlja glavni entitet ovog modela. On se sastoji od sledećih elemena
 * Model aviona
 * Registracija
 * Unapređenja
-	* Sastoje se od mape gde je ključ redni broj, a vrednost `True` ili `False`
-	  u zavisnosti od toga da li je unapređenje odrađeno ili ne
+	* U zavisnosti od toga da li je unapređenje odrađeno ili ne
 * Vrednost
 * Vrednost unapređenja
 
@@ -52,6 +51,10 @@ Potrebno je omogućiti kreiranje sledećih izveštaja i statistika:
 * Ukupan broj remontovanih i ne remontovanih aviona
 * Ukupna cena potrošenog novca u hangaru radi unapređenja svih aviona
 * Ukupna cena potrošenog novca u hangaru radi unapređenja određene avio kompanije
+* Prosečna vrednost kupljenih unapređenja, unapređenja svih aviona, unapređenja određene avio kompanije
 
 Zaključak
 ---------
+Gore navedeni dokument predstavlja specifikaciju na osnovu koje ćemo da vršimo programiranje u 
+Haskell-u. Podložno je izmeni, ali na retroaktivan način: kada se implementuje nešto novo kao izmena,
+vraća se nazad na ovaj dokument i vrši se njegova izmena.

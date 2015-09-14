@@ -78,7 +78,7 @@ Izvedu se nove vrednosti iz postojećih koje zadovoljavaju uslov propisan relaci
 Kako čitamo ovaj kod napisan u Haskell-u? Nikakav problem, čak je i smisleniji nego
 u slučaju Javascript-a: 
 ```
-Postoji vrednost `x` koja za svaki element niza `[1, 2, 3, 4, 5]` radi proveru
+Postoji vrednost x koja za svaki element niza [1, 2, 3, 4, 5] radi proveru
 da li je on paran; ako jeste, vrati listu sa tim nizom.
 ```
 
