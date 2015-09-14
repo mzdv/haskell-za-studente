@@ -88,6 +88,28 @@ Identično rešenje bi se dobili da smo koristili *Command prompt*:
 
 Kompajler
 ---------
+Ako odlučimo da izvršimo kompilaciju našeg programa, potrebno je uraditi nekoliko stvari.
+
+Pre svega, potrebno je definisati **ulaznu tačku** programa koja se u Haskell-u naziva
+`main` monada i pripada `IO()` polimorfnom tipu. O monadama više u sledećem programu, tako da
+za sada je dovoljno tretirati `main` kao običnu funkciju.
+
+U ulaznoj tački se vrši pozivanje funkcija i njihova kompozicija, kao i preuzimanje ulaznih
+podataka sa konzole, a takođe i njihov ispit.
+
+Kompilacija se vrši otvaranjem *Command prompt*-a, navigacijom do direktorijuma gde se nalazi
+Haskell fajl sa `main` monadom (ne zaboravite da Haskell koristi ekstenziju `.hs`) i 
+pokretanjem komande `ghc imeFajla.hs`
+
+Kao i uvek, najbolje je ilustrovati primerom i slikom, u ovom slučaju kompilacijom i 
+izvršavanjem programa koji ispisuje string "asd" na ekran :
+
+![Kompilacija putem Command prompt-a](images/kompilacija.png)
 
 Zaključak
 ---------
+
+Cilj ovog poglavlja je da pruži malo detaljniji tehnički aspekt programskog jezika Haskell.
+Pored toga, namena je i da osposobi korisnika da rukuje alatom kako bi mogao da koristi 
+interpreter za testiranja koda, kao i način da prilagodi kod koji je bio interpretiran u oblik
+na osnovu koga bi se kod kompajlirao.
