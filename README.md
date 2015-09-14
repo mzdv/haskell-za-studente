@@ -17,7 +17,7 @@ Knjiga će za vreme svog razvoja pretrpeti veliki broj izmena, ponajviše kod ra
 
 Knjiga se sastoji od nekoliko poglavlja:
 * [Šta je Haskell i šta ga čini u osnovi?](chapter1.md)
-* [Naš model i priključenija](chapter2.md)
+* [Model podataka](chapter2.md)
 * [Interpreter i kompajler](chapter3.md)
 * [Sa magarca na konja](chapter4.md)
 * [Zanimljivosti](chapter5.md)

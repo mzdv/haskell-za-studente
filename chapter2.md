@@ -1,4 +1,4 @@
-#Naš model i priključenija
+#Model podataka
 --------------------------
 
 Uvod
