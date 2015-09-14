@@ -64,10 +64,16 @@ U Haskell-u, ovo bi se moglo uraditi na sledeći način:
 [x | x <- [1,2,3,4,5], mod x 2 == 0]
 ```
 
-Rezultat je nova lista (pošto Haskell ne sadrži koncept nizova; to su zapravo liste):
+Rezultat je *nova* lista (pošto Haskell ne sadrži koncept nizova; to su zapravo liste):
 ```
 [2,4]
 ```
+
+Obratite pažnju da je ovo *nova* lista. A zašto je tako? Zar nije logično da ćemo dobiti nekakavu vrstu
+"filterisane" liste? Haskell promoviše koncept **nepromenljivosti** vrednosti (*immutability* na
+engleskom jeziku) - drugim rečima, nikad se ne menjaju originalne vrednosti koje su ulaz u relaciju. 
+Izvedu se nove vrednosti iz postojećih koje zadovoljavaju uslov propisan relacijom.
+
 
 Kako čitamo ovaj kod napisan u Haskell-u? Nikakav problem, čak je i smisleniji nego
 u slučaju Javascript-a: 
