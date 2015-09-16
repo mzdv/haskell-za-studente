@@ -1,6 +1,6 @@
 * [Šta je Haskell i šta ga čini u osnovi?](chapter1.md)
 * [Model podataka](chapter2.md)
 * [Interpreter i kompajler](chapter3.md)
-* [Sa magarca na konja](chapter4.md)
+* [Implementacija modela](chapter4.md)
 * [Zanimljivosti](chapter5.md)
 * [Zaključak](chapter6.md)

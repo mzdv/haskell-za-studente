@@ -11,14 +11,6 @@ i na kraju za kreiranje izveštaja i statistike kojom se može oceniti učinak r
 Pošto je cilj učenje korišćenja jezika, nećemo se baviti problemima perzistentnosti
 podataka, pošto bi to zahtevali pisanje knjige samo za tu namenu.
 
-Hangar
-------
-Potrebno je da hangar može da:
-* Održava spisak aviona koji su trenutno u njemu
-* Omogući dolazak aviona u hangar
-* Omogući izlazak aviona iz hangara
-* Izvrši unapređenje aviona ako postoji neophodna količina novca od strane naručioca
-
 Avion
 -----
 Avion predstavlja glavni entitet ovog modela. On se sastoji od sledećih elemenata:
@@ -33,6 +25,13 @@ Avion predstavlja glavni entitet ovog modela. On se sastoji od sledećih elemena
 * Vrednost unapređenja
 
 Potrebno je omogućiti i kreiranje izveštaja gde će se prikazati podaci o avionu.
+
+Hangar
+------
+Potrebno je da hangar može da:
+* Održava spisak aviona koji su trenutno u njemu
+* Omogući dolazak aviona u hangar
+* Omogući izlazak aviona iz hangara
 
 Unapređenja
 -----------
