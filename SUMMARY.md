@@ -2,5 +2,5 @@
 * [Model podataka](chapter2.md)
 * [Interpreter i kompajler](chapter3.md)
 * [Implementacija modela](chapter4.md)
-* [Zanimljivosti](chapter5.md)
-* [Zaključak](chapter6.md)
+* [Kompilacija i još par koncepata](chapter5.md)
+* [Gde dalje?](chapter6.md)
