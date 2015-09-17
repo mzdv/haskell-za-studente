@@ -116,3 +116,9 @@ mogli bismo da shvatimo da, koristeći monade, mi pretvaramo ulazne podatke, kro
 koje karakterišu jednu monadu, u drugi tip funkcija koje karakterišu drugu monadu sve dok ne
 dobijemo izlaz koji generišu željene funkcije. Pored toga, monade imaju svoje posebne osobine
 koje nam mogu dodatno pomoći u računu, kao i najrazličitiji tipovi monada koje Haskell pruža.
+
+Zaključak
+---------
+Kroz ovo poglavlje smo prošli način implementacije Haskell programa koji se kompajliraju, 
+pretvaranje interpretiranog programa u kompajlirani, kao i način na koji oni funkcionišu. U
+drugom delu smo dotakli monade, opisali šta su i kakva je njihova analogija sa stvarnim svetom.
