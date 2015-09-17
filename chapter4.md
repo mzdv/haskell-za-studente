@@ -17,13 +17,13 @@ Kod za ovaj deo, gde se inicijalizuje hangar i koristi se primer aviona i dodaje
 se nalazi ispod:
 ```
 let hangarA = []
-let avion = ("Antonov","Antonov Airlines","An-225","AN-AAA",(1, 1000),15000,1000)
+let avion = ("Antonov","Antonov Airlines","An-225","AN-AAA",[1],15000,1000)
 let hangarB = avion:hangarA -- operator : vrši konkatenaciju na početak liste
 ```
 
 Rezultat:
 ```
-[("Antonov","Antonov Airlines","An-225","AN-AAA",(1,1000),15000,1000)]
+[("Antonov","Antonov Airlines","An-225","AN-AAA",[1],15000,1000)]
 ```
 
 U rezultatu vidimo da smo uspešno dodali sedmorku u listu hangar. Pored toga, koristili smo
@@ -58,6 +58,61 @@ i `init` koja vraća listu **bez** prvog elementa.
 Unapređenja
 -----------
 
+Unapređenja definišemo koristeći strukturu podataka koja se zove **mapa**. Mapa predstavlja uređen par
+ključ - vrednost. U našem slučaju, ključ će da predstavlja redni broj unapređenja (onaj isti broj koji
+smo stavljali kod aviona), dok će njegova vrednost da bude cena/vrednost unapređenja.
+
+Mape u Haskell-u se prave od listi. Najzanimljivija stvar što se mapa kao mapa **ne pravi**, nego se ona
+**generiše** svaki put kada se napravi njen poziv.
+
+Pre nego što krenemo da radimo sa mapama, potrebno je da unesemo opseg u kome se mape nalaze. Početni
+opseg karakterističan za svaki GHCi program jeste "Prelude" koji predstavlja osnovne funkcije koje
+pruža Haskell.
+
+Rad sa mapama se nalazi u opsegu `Data.Map`. Njegov uvoz vršimo na sledeći način iz GHCi:
+```
+:m Data.Map
+```
+Znaćemo da je uvoz bio uspešan onog trenutka kada, pored `Prelude`, bude pisalo `Prelude Data.Map`. Sada
+možemo da radimo sa mapama.
+
+Primer rada sa mapama u kontekstu definisanja unapređenja za avione:
+```
+let unapredjenja = fromList [(1,1000), (2,10000), (3,5000)]
+```
+
+Ovako smo kreirali funkciju generator `unapređenja` koja generiše mapu na osnovu unete liste svaki put
+kada se pozove.
+
+Sad kada imamo mapu, šta možemo da radimo sa njom? Hajde da odredimo sve ključeve mape:
+```
+keys unapredjenja
+```
+
+Rezultat je:
+```
+[1,2,3]
+```
+
+Ali zar nismo ovo mogli da uradimo putem liste? Što smo uopšte pravili mapu? Ako bismo koristili listu
+da izvadimo ključeve, kod bi izgledao ovako:
+```
+let unapredjenja = [(1,1000), (2,10000), (3,5000)]
+map fst unapredjenja --- ako nismo uvezli Data.Map opseg; ako jesmo, map zameniti sa Prelude.map
+```
+
+Rezultat:
+```
+[1,2,3]
+```
+
+Iako je izvodljivo, u startu gubimo jednostavnost koda: potrebno je da izvršimo funkciju mapiranja `map`
+(koja nema veze sa mapama od malopre, pošto ona vrši transformaciju jedne listu u drugu) nad prvim 
+elementima (oznaka `fst` vraća prvi element iz uređenog para) iz liste `unapredjenja` (naravno, rekurzivno
+na isti način kao što je opisano u prethodnim poglavljima - kreiranjem funkcije `1:2:3:[]`).
+
+Koncept kada se više operacija može koristiti radi dolaska do istog rešenja (bile one međusobno
+jednostavnije ili teže za razumevanja) se zove **sintaktički šećer** (*syntactic sugar*).
 
 Naručilac
 ---------
