@@ -179,6 +179,7 @@ Funkcija `concat` se koristi da "spljošti" listu.
 
 U slučaju da želimo da izračunamo cenu svih unapređenja samo jedne avio kompanije, to bismo uradili na
 sledeći način:
+
 ```
 Prelude Data.Map> let unapredjenjaII (_,m,_,_,_,_,_) = m
 Prelude Data.Map> let unaprediti = [unapredjenjaV x | x <- hangar, unapredjenjaII x == "Antonov Airlines"]
