@@ -16,9 +16,9 @@ one nalaze zove `hangar`. On će u početku biti prazna lista, ali će se kasnij
 Kod za ovaj deo, gde se inicijalizuje hangar i koristi se primer aviona i dodaje u hangar
 se nalazi ispod:
 ```
-let hangarA = []
-let avion = ("Antonov","Antonov Airlines","An-225","AN-AAA",[1],15000,1000)
-let hangarB = avion:hangarA -- operator : vrši konkatenaciju na početak liste
+Prelude> let hangarA = []
+Prelude> let avion = ("Antonov","Antonov Airlines","An-225","AN-AAA",[1],15000,1000)
+Prelude> let hangarB = avion:hangarA -- operator : vrši konkatenaciju na početak liste
 ```
 
 Rezultat:
@@ -42,7 +42,7 @@ Na ovaj način omogućavamo dolazak aviona u hangar.
 
 Izlazak aviona iz hangara obavljamo obrnuto od ulaska aviona u hangar:
 ```
-hangarA = drop 1 hangarB
+Prelude> hangarA = drop 1 hangarB
 ```
 
 Rezultat (vrednost generator funkcije `hangarA`):
@@ -78,7 +78,7 @@ možemo da radimo sa mapama.
 
 Primer rada sa mapama u kontekstu definisanja unapređenja za avione:
 ```
-let unapredjenja = fromList [(1,1000), (2,10000), (3,5000)]
+Prelude Data.Map> let unapredjenja = fromList [(1,1000), (2,10000), (3,5000)]
 ```
 
 Ovako smo kreirali funkciju generator `unapređenja` koja generiše mapu na osnovu unete liste svaki put
@@ -97,8 +97,8 @@ Rezultat je:
 Ali zar nismo ovo mogli da uradimo putem liste? Što smo uopšte pravili mapu? Ako bismo koristili listu
 da izvadimo ključeve, kod bi izgledao ovako:
 ```
-let unapredjenja = [(1,1000), (2,10000), (3,5000)]
-map fst unapredjenja --- ako nismo uvezli Data.Map opseg; ako jesmo, map zameniti sa Prelude.map
+Prelude> let unapredjenja = [(1,1000), (2,10000), (3,5000)]
+Prelude> map fst unapredjenja --- ako nismo uvezli Data.Map opseg; ako jesmo, map zameniti sa Prelude.map
 ```
 
 Rezultat:
@@ -114,11 +114,89 @@ na isti način kao što je opisano u prethodnim poglavljima - kreiranjem funkcij
 Koncept kada se više operacija može koristiti radi dolaska do istog rešenja (bile one međusobno
 jednostavnije ili teže za razumevanja) se zove **sintaktički šećer** (*syntactic sugar*).
 
-Naručilac
----------
-
 Izveštaji i statistika
 ----------------------
 
+Kroz izveštaje i statistiku se može videti prava primena funkcionalnog i deklarativnog programiranja,
+pošto mi "izvlačimo" podatke iz postojećeg skupa vrednosti, umesto da izdajemo korake računaru koji će
+podatke iz početnih vrednosti da transformiše u nove.
+
+Ukupan broj aviona, zajedno sa unapređenim i neunapređenim ćemo uraditi na sledeći način:
+```
+Prelude> let hangar = [("Antonov","Antonov Airlines","An-225","AN-AAA",[1],15000,1000),("Boeing","Air Srbija","737","YU-ANJ",[1,2,3],19000,16000)]
+Prelude> length hangar
+```
+
+Rezultat: 
+```
+2
+```
+
+U slučaju unapređenih aviona, potrebno je da odaberemo sve avione gde peti element sedmorke postoji:
+```
+Prelude> let unapredjenjaVII (_,_,_,_,z,_,_) = z 
+									 -- ovaj nesrećni oblik vraća od sedmorke njen peti element; u ovom 
+									 -- slučaju lista njenih unapređenja; _ karakter označava vrednost  
+									 -- koja se zanemaruje; z karakter je proizvoljan
+Prelude> length [x | x <- hangar, not (null (unapredjenjaVII x))]
+```
+Rezultat:
+```
+2
+```
+
+Analogno se radi i u slučaju aviona koji nisu unapređeni, samo što se radi kompozicija funkcija sa 
+funkcijom `not`:
+```
+Prelude> length [x | x <- hangar, not (null (unapredjenjaVII x))]
+```
+
+Rezultat
+```
+0 -- pošto svi avioni u hangaru imaju unapređenja
+```
+
+Ako bismo hteli da odredimo koliko je novca potrošeno za sva unapređenja, neophodno je da iz liste svih
+unapređenja, za svaki avion, pročitamo vrednosti na koje pokazuju ključevi i potom da ih saberemo.
+
+Primer:
+```
+Prelude Data.Map> let unaprediti = [x | x <- (Prelude.map unapredjenjaVII hangar)] 	 -- vraća[[1],[1,2,3]]
+Prelude Data.Map> let unapreditiCisto = concat unaprediti							 -- koje pretvaramo u [1,1,2,3]
+Prelude Data.Map> sum (Prelude.map (unapredjenja !) unapreditiCisto)
+```
+
+Rezultat:
+```
+17000
+```
+
+Treća linija je ovde najbitnija. Naime, za svaki ključ iz `unapreditiCisto`, mi pronalazimo njenu vrednost
+u mapi `unapredjenja` koristeći operator `!`, a potom pravimo od toga novu listu - listu koja sadrži cene
+svih unapređenja. Posle toga je dovoljno da izvršimo `sum` da bismo došli do željenog izraza.
+
+Funkcija `concat` se koristi da "spljošti" listu.
+
+U slučaju da želimo da izračunamo cenu svih unapređenja samo jedne avio kompanije, to bismo uradili na
+sledeći način:
+```
+Prelude Data.Map> let unapredjenjaII (_,m,_,_,_,_,_) = m
+Prelude Data.Map> let unaprediti = [unapredjenjaV x | x <- hangar, unapredjenjaII x == "Antonov Airlines"]
+Prelude Data.Map> let unapreditiCisto = concat unaprediti					
+Prelude Data.Map> sum (Prelude.map (unapredjenja !) unapreditiCisto)
+```
+
+Rezultat:
+```
+1000
+```
+
+Ako bismo odlučili da računamo prosečnu vrednost, podelili bismo gore dobijene sume sa brojem unapređenja
+u svim avionima ili u svim avio kompanijama, zavisi od željene situacije.
+
 Zaključak
 ---------
+
+U ovom poglavlju smo prošli konkretniju primenu Haskell-a za stvarne situacije. Kao što se vidi na početku,
+problem može da predstavlja nepromenljivost podataka; ali za sve ostale stavke, Haskell je i te kako
+sposoban da ih uradi, ponekad čak jednostavnije i lakše nego u imperativnim programskim jezicima.
